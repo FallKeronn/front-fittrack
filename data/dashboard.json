@@ -1,0 +1,63 @@
+{
+   "todayWorkout": {
+      "name": "Bench Press",
+      "predictedWeight": 70,
+      "image": "bench-press.jpg"
+   },
+   "weeklyTraining": [
+      {
+         "weekday": "MON",
+         "date": 10,
+         "type": "Upper",
+         "active": false
+      },
+      {
+         "weekday": "MON",
+         "date": 10,
+         "type": "Upper",
+         "active": false
+      },
+      {
+         "weekday": "MON",
+         "date": 10,
+         "type": "Upper",
+         "active": false
+      },
+      {
+         "weekday": "MON",
+         "date": 10,
+         "type": "Upper",
+         "active": false
+      },
+      {
+         "weekday": "MON",
+         "date": 10,
+         "type": "Upper",
+         "active": false
+      },
+      {
+         "weekday": "TUE",
+         "date": 11,
+         "type": "Lower",
+         "active": true
+      },
+      {
+         "weekday": "WED",
+         "date": 12,
+         "type": "Rest",
+         "active": false
+      }
+   ],
+   "recentSessions": [
+      {
+         "title": "Upper Body Power",
+         "date": "March 9, 2026",
+         "weight": 70
+      },
+      {
+         "title": "Full Body Hypertrophy",
+         "date": "March 6, 2026",
+         "weight": 65
+      }
+   ]
+}

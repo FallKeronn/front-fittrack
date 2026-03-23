@@ -1,0 +1,16 @@
+@import "base/_reset.scss";
+@import "base/_variables.scss";
+@import "base/_baseForm.scss";
+
+@import "layout/_headerForm.scss";
+@import "layout/_auth.scss";
+@import "layout/footer";
+
+@import "pages/_registration.scss";
+@import "pages/_login.scss";
+@import "pages/_biometric.scss";
+@import "pages/landing";
+@import "pages/forgot-password";
+@import "pages/reset-password";
+@import "pages/pricing";
+@import "pages/terms-of-service";

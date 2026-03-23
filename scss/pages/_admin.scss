@@ -1,0 +1,486 @@
+.admin-page {
+   flex: 1;
+   background-color: $bg-main;
+
+   &__container {
+      padding: 54px 22px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 54px;
+   }
+
+   &__title {
+      margin: 0 0 26px;
+      font-size: 40px;
+      font-weight: 700;
+      color: $text-primary;
+   }
+}
+
+.header {
+   &__announcement {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 31px;
+      border-radius: 15px;
+      background: #fff;
+      color: #ccb3f9;
+      font-size: 22px;
+      font-weight: 700;
+      transition: opacity 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+         opacity: 0.9;
+      }
+
+      &[aria-disabled="true"] {
+         opacity: 0.65;
+         pointer-events: none;
+      }
+   }
+}
+
+.admin-overview {
+   &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+   }
+}
+
+.admin-stat-card {
+   min-height: 100px;
+   padding: 18px 20px;
+   background: #fbfbfc;
+   border-radius: 15px;
+   box-shadow: $shadow;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+
+   &__label {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $text-primary;
+   }
+
+   &__value {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 700;
+      color: $text-primary;
+   }
+
+   &__text {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 600;
+      color: $text-primary;
+   }
+}
+
+.admin-section {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 700;
+      color: $text-primary;
+   }
+}
+
+.admin-table-card {
+   overflow: hidden;
+   border-radius: 15px;
+   background: #fbfbfc;
+   box-shadow: $shadow;
+}
+
+.admin-table {
+   width: 100%;
+   border-collapse: collapse;
+
+   &__head {
+      background: #d8d2f7;
+
+      th {
+         padding: 12px 18px;
+         text-align: left;
+         font-size: 18px;
+         font-weight: 700;
+         color: $text-primary;
+
+         &:last-child {
+            text-align: right;
+         }
+      }
+   }
+
+   &__body {
+      tr {
+         border-bottom: 1px solid #d9d3f7;
+
+         &:last-child {
+            border-bottom: none;
+         }
+      }
+
+      td {
+         padding: 16px 18px;
+         font-size: 16px;
+         font-weight: 500;
+         color: $text-primary;
+         vertical-align: middle;
+
+         &:last-child {
+            text-align: right;
+         }
+      }
+   }
+
+   &__actions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      flex-wrap: wrap;
+   }
+}
+
+.admin-badge {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 28px;
+   padding: 4px 12px;
+   border-radius: 15px;
+   font-size: 14px;
+   font-weight: 600;
+
+   &--admin {
+      background: #d7d1f8;
+      color: #8f81dc;
+   }
+
+   &--pro {
+      background: #b8f2ea;
+      color: #24bdb0;
+   }
+
+   &--free {
+      background: #d2d2db;
+      color: #706d7f;
+   }
+}
+
+.admin-action {
+   border: none;
+   background: transparent;
+   padding: 0;
+   font-size: 14px;
+   font-weight: 500;
+   color: #9a98aa;
+   transition: opacity 0.2s ease;
+   cursor: pointer;
+
+   &:hover {
+      opacity: 0.7;
+   }
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+   }
+
+   &--muted {
+      color: #c2bfca;
+      font-style: italic;
+      cursor: default;
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+
+   &--restore {
+      color: #5abf73;
+      font-weight: 600;
+   }
+
+   &--delete {
+      color: #ef4136;
+      font-weight: 500;
+   }
+}
+
+.admin-date {
+   font-size: 16px;
+   font-weight: 500;
+   color: $text-primary;
+
+   &--deleted {
+      color: #ef4136;
+   }
+}
+
+.admin-logs {
+   background: #fbfbfc;
+   border-radius: 15px;
+   box-shadow: $shadow;
+   padding: 20px 26px;
+   display: flex;
+   flex-direction: column;
+   gap: 28px;
+}
+
+.admin-log-item {
+   display: flex;
+   align-items: flex-start;
+   gap: 16px;
+
+   &__icon {
+      width: 50px;
+      height: 50px;
+      flex: 0 0 50px;
+      border-radius: 50%;
+      background: #9d98ac;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+         font-size: 18px;
+         font-weight: 700;
+         color: #fff;
+      }
+   }
+
+   &__content {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 4px;
+   }
+
+   &__text {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.3;
+      color: $text-primary;
+
+      strong {
+         font-weight: 700;
+      }
+   }
+
+   &__tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: #78728d;
+      font-size: 14px;
+      line-height: 1;
+      color: #fff;
+   }
+
+   &__meta {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(52, 45, 77, 0.06);
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #a3a0ae;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+   }
+
+   &__time {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.2;
+      color: #8e8a9e;
+   }
+}
+
+.admin-empty-state,
+.admin-error-state {
+   padding: 24px;
+   font-size: 16px;
+   line-height: 1.5;
+   color: $text-primary;
+}
+
+.admin-error-state {
+   color: #ef4136;
+}
+
+@media (max-width: 1100px) {
+   .admin-page {
+      &__container {
+         padding: 36px 16px 28px;
+         gap: 40px;
+      }
+
+      &__title {
+         font-size: 28px;
+         margin-bottom: 20px;
+      }
+   }
+
+   .admin-overview {
+      &__grid {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+   }
+
+   .admin-section {
+      &__title {
+         font-size: 28px;
+      }
+   }
+
+   .admin-stat-card {
+      &__label {
+         font-size: 18px;
+      }
+
+      &__value {
+         font-size: 34px;
+      }
+
+      &__text {
+         font-size: 18px;
+      }
+   }
+
+   .admin-table {
+      &__head th {
+         font-size: 16px;
+      }
+
+      &__body td {
+         font-size: 14px;
+      }
+
+      &__actions {
+         gap: 10px;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .admin-page {
+      &__container {
+         padding: 24px 14px 20px;
+         gap: 32px;
+      }
+
+      &__title {
+         font-size: 24px;
+         margin-bottom: 16px;
+      }
+   }
+
+   .header {
+      &__announcement {
+         min-height: 36px;
+         padding: 0 16px;
+         font-size: 14px;
+         border-radius: 15px;
+      }
+   }
+
+   .admin-overview {
+      &__grid {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   .admin-section {
+      gap: 14px;
+
+      &__title {
+         font-size: 24px;
+      }
+   }
+
+   .admin-stat-card {
+      min-height: 88px;
+      padding: 16px;
+
+      &__label {
+         font-size: 16px;
+      }
+
+      &__value {
+         font-size: 30px;
+      }
+
+      &__text {
+         font-size: 16px;
+      }
+   }
+
+   .admin-table-card {
+      overflow-x: auto;
+   }
+
+   .admin-table {
+      min-width: 720px;
+   }
+
+   .admin-logs {
+      padding: 18px 16px;
+      gap: 20px;
+   }
+
+   .admin-log-item {
+      gap: 12px;
+
+      &__icon {
+         width: 42px;
+         height: 42px;
+         flex: 0 0 42px;
+
+         span {
+            font-size: 16px;
+         }
+      }
+
+      &__text {
+         font-size: 15px;
+      }
+
+      &__tag {
+         font-size: 12px;
+      }
+
+      &__meta {
+         font-size: 11px;
+      }
+   }
+}

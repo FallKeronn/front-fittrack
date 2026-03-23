@@ -1,0 +1,11 @@
+body {
+   font-family: 'DM Sans', sans-serif;
+}
+
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   background-color: $bg-main;
+}

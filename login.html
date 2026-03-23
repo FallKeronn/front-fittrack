@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Log In</title>
+</head>
+
+<body class="login-page">
+
+   <section class="auth">
+
+      <header class="auth__header header">
+         <div class="header__container">
+            <div class="header__row">
+               <a href="landing.html" class="header__logo">
+                  <span class="header__logo-icon">
+                     <img src="img/icons/Logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <div class="header__actions">
+                  <a href="landing.html" class="header__back" aria-label="Back">
+                     <span class="header__back-icon">
+                        <img src="img/icons/arrow-back-icon.svg" alt="">
+                     </span>
+                     <span class="header__back-text">Back</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <div class="auth__container">
+         <div class="auth__body">
+            <div class="auth__promo promo-auth">
+               <div class="promo-auth__top">
+                  <a href="landing.html" class="promo-auth__logo">
+                     <span class="promo-auth__logo-icon">
+                        <img src="img/icons/Logo_white.svg" alt="FitTrack logo">
+                     </span>
+                     <span class="promo-auth__logo-title">FitTrack</span>
+                  </a>
+
+                  <h1 class="promo-auth__title">
+                     Welcome back<br>
+                     to <span>FitTrack</span>
+                  </h1>
+               </div>
+
+               <div class="promo-auth__image">
+                  <img src="img/screen-app-2.png" alt="Weekly training dashboard">
+               </div>
+            </div>
+
+            <div class="auth__form auth-form">
+               <div class="auth-form__content">
+                  <h2 class="auth-form__title">Sign In</h2>
+                  <p class="auth-form__subtitle">
+                     Don't have an account?
+                     <a href="registration.html" class="auth-form__subtitle-link">Register here</a>
+                  </p>
+
+                  <div class="auth-form__message" id="loginMessage"></div>
+
+                  <form action="#" class="auth-form__form" id="loginForm">
+                     <div class="auth-form__fields">
+
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="login-email">Email Address</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/gmail-form_icon.svg" alt="">
+                              </span>
+                              <input id="login-email" name="email" type="email" class="field__input"
+                                 placeholder="Gosling@gmail.com">
+                           </div>
+                        </div>
+
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="login-password">Password</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/password_icon.svg" alt="">
+                              </span>
+                              <input id="login-password" name="password" type="password" class="field__input"
+                                 placeholder="Password">
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <div class="auth-form__options">
+                        <label class="auth-form__remember remember" for="remember-me">
+                           <input class="remember__input" type="checkbox" name="remember" id="remember-me">
+                           <span class="remember__box"></span>
+                           <span class="remember__text">Remember me</span>
+                        </label>
+
+                        <a href="forgot-password.html" class="auth-form__forgot">Forgot password?</a>
+                     </div>
+
+                     <button type="submit" class="auth-form__submit button button--primary">
+                        Sign In
+                     </button>
+
+                     <div class="auth-form__divider">
+                        <span class="auth-form__divider-text">or</span>
+                     </div>
+
+                     <button type="button" class="auth-form__google button button--google" id="googleLoginButton">
+                        <span class="button__icon">
+                           <img src="img/icons/google.svg" alt="">
+                        </span>
+                        <span class="button__text">Continue with Google</span>
+                     </button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </section>
+
+   <script src="./js/config/config.js"></script>
+   <script src="./js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="./js/auth/login.js"></script>
+</body>
+
+</html>

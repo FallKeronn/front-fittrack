@@ -1,0 +1,157 @@
+.training-day {
+   background: #fff;
+   border-radius: 15px;
+   min-height: 192px;
+   padding: 16px 24px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: $shadow;
+   min-width: 0;
+
+   &__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #c7c7c7;
+      display: block;
+      margin: 0 auto;
+      flex: 0 0 auto;
+
+      &--done {
+         background: #7ac286;
+      }
+   }
+
+   &__change {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      padding: 4px 10px;
+      border-radius: 15px;
+      background: #89C4ED;
+      color: $text-primary;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+
+      &:hover {
+         opacity: 0.9;
+      }
+   }
+
+   &--active {
+      background: #dce8ff;
+      border: 1px solid #91BFFF;
+   }
+
+   &__weekday {
+      font-size: 26px;
+      font-weight: 500;
+      color: $text-secondary;
+      text-align: center;
+   }
+
+   &__date {
+      font-size: 40px;
+      font-weight: 700;
+      color: $text-primary;
+      text-align: center;
+   }
+
+   &__type {
+      font-size: 20px;
+      font-weight: 600;
+      color: $text-secondary;
+      text-align: center;
+      line-height: 1.2;
+   }
+
+   &__status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #c7c7c7;
+
+      &--done {
+         background: #7ac286;
+      }
+   }
+
+   &__action {
+      border: none;
+      background: #89C4ED;
+      color: $text-primary;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+   }
+}
+
+@media (max-width: 1200px) {
+   .training-day {
+      min-height: 176px;
+      min-width: 150px;
+      padding: 14px 18px;
+      border-radius: 15px;
+
+      &__weekday {
+         font-size: 22px;
+      }
+
+      &__date {
+         font-size: 34px;
+      }
+
+      &__type {
+         font-size: 18px;
+      }
+
+      &__change,
+      &__action {
+         font-size: 14px;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .training-day {
+      min-height: 156px;
+      min-width: 136px;
+      padding: 12px 14px;
+      border-radius: 15px;
+
+      &__weekday {
+         font-size: 18px;
+      }
+
+      &__date {
+         font-size: 28px;
+      }
+
+      &__type {
+         font-size: 15px;
+      }
+
+      &__change,
+      &__action {
+         min-height: 22px;
+         padding: 3px 8px;
+         font-size: 12px;
+         border-radius: 15px;
+      }
+
+      &__dot,
+      &__status {
+         width: 10px;
+         height: 10px;
+      }
+   }
+}

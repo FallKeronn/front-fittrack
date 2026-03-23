@@ -1,0 +1,166 @@
+.terms-page {
+   .auth__container {
+      max-width: 1240px;
+      padding: 0 20px 56px;
+   }
+
+   .terms {
+      &__card {
+         background: #ffffff;
+         border-radius: 15px;
+         box-shadow: $shadow;
+         padding: 56px 72px 48px;
+      }
+
+      &__head {
+         text-align: center;
+         margin-bottom: 48px;
+      }
+
+      &__title {
+         margin: 0 0 20px;
+         font-size: 46px;
+         line-height: 1.1;
+         font-weight: 700;
+         color: $text-primary;
+      }
+
+      &__subtitle {
+         margin: 0;
+         font-size: 24px;
+         line-height: 1.25;
+         font-weight: 700;
+         color: #6e6a85;
+      }
+
+      &__content {
+         display: flex;
+         flex-direction: column;
+         gap: 28px;
+      }
+
+      &__section {
+         display: flex;
+         flex-direction: column;
+         gap: 22px;
+      }
+
+      &__heading {
+         margin: 0;
+         font-size: 28px;
+         line-height: 1.2;
+         font-weight: 700;
+         color: $text-primary;
+      }
+
+      &__text {
+         margin: 0;
+         max-width: 1060px;
+         font-size: 24px;
+         line-height: 1.35;
+         font-weight: 400;
+         color: #6e6a85;
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .terms-page {
+      .terms {
+         &__card {
+            padding: 48px 40px 40px;
+         }
+
+         &__head {
+            margin-bottom: 40px;
+         }
+
+         &__title {
+            font-size: 40px;
+         }
+
+         &__subtitle {
+            font-size: 22px;
+         }
+
+         &__heading {
+            font-size: 26px;
+         }
+
+         &__text {
+            font-size: 22px;
+         }
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .terms-page {
+      .auth__container {
+         padding: 0 16px 40px;
+      }
+
+      .terms {
+         &__card {
+            border-radius: 15px;
+            padding: 36px 24px 32px;
+         }
+
+         &__head {
+            margin-bottom: 32px;
+         }
+
+         &__content {
+            gap: 24px;
+         }
+
+         &__section {
+            gap: 16px;
+         }
+
+         &__title {
+            font-size: 34px;
+            margin-bottom: 16px;
+         }
+
+         &__subtitle {
+            font-size: 20px;
+         }
+
+         &__heading {
+            font-size: 24px;
+         }
+
+         &__text {
+            font-size: 18px;
+         }
+      }
+   }
+}
+
+@media (max-width: 480px) {
+   .terms-page {
+      .terms {
+         &__card {
+            padding: 28px 16px 24px;
+         }
+
+         &__title {
+            font-size: 30px;
+         }
+
+         &__subtitle {
+            font-size: 18px;
+         }
+
+         &__heading {
+            font-size: 22px;
+         }
+
+         &__text {
+            font-size: 16px;
+            line-height: 1.45;
+         }
+      }
+   }
+}

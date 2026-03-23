@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Registration</title>
+</head>
+
+<body class="registration-page">
+
+   <section class="auth">
+      <header class="auth__header header">
+         <div class="header__container">
+            <div class="header__row">
+               <a href="landing.html" class="header__logo">
+                  <span class="header__logo-icon">
+                     <img src="img/icons/Logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <div class="header__actions">
+                  <a href="landing.html" class="header__back" aria-label="Back">
+                     <span class="header__back-icon">
+                        <img src="img/icons/arrow-back-icon.svg" alt="">
+                     </span>
+                     <span class="header__back-text">Back</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <div class="auth__container">
+         <div class="auth__body">
+            <div class="auth__promo promo-auth">
+               <div class="promo-auth__top">
+                  <a href="landing.html" class="promo-auth__logo">
+                     <span class="promo-auth__logo-icon">
+                        <img src="img/icons/Logo_white.svg" alt="FitTrack logo">
+                     </span>
+                     <span class="promo-auth__logo-title">FitTrack</span>
+                  </a>
+
+                  <h1 class="promo-auth__title">
+                     Start your fitness<br>
+                     journey with <span>FitTrack</span>
+                  </h1>
+
+                  <p class="promo-auth__text">
+                     Create your account and unlock personalized workouts based on your progress
+                  </p>
+               </div>
+
+               <div class="promo-auth__image">
+                  <img src="img/screen-app-2.png" alt="Weekly training dashboard">
+               </div>
+            </div>
+
+            <div class="auth__form auth-form">
+               <div class="auth-form__content">
+                  <h2 class="auth-form__title">Create Account</h2>
+                  <p class="auth-form__subtitle">
+                     Let’s get started with your FitTrack profile
+                  </p>
+
+                  <div class="auth-form__message" id="registerMessage"></div>
+
+                  <form action="#" class="auth-form__form" id="registerForm">
+                     <div class="auth-form__fields">
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="full-name">Full Name</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/profile-form_icon.svg" alt="">
+                              </span>
+                              <input id="full-name" name="name" type="text" class="field__input"
+                                 placeholder="Ryan Gosling">
+                           </div>
+                        </div>
+
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="reg-email">Email Address</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/gmail-form_icon.svg" alt="">
+                              </span>
+                              <input id="reg-email" name="email" type="email" class="field__input"
+                                 placeholder="Gosling@gmail.com">
+                           </div>
+                        </div>
+
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="reg-password">Password</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/password_icon.svg" alt="">
+                              </span>
+                              <input id="reg-password" name="password" type="password" class="field__input"
+                                 placeholder="Create a password">
+                           </div>
+                        </div>
+
+                        <div class="auth-form__field field">
+                           <label class="field__label" for="confirm-password">Confirm Password</label>
+                           <div class="field__control">
+                              <span class="field__icon">
+                                 <img src="img/icons/password_icon.svg" alt="">
+                              </span>
+                              <input id="confirm-password" name="password_confirmation" type="password"
+                                 class="field__input" placeholder="Repeat a password">
+                           </div>
+                        </div>
+                     </div>
+
+                     <button type="submit" class="auth-form__submit button button--primary">
+                        Create Account
+                     </button>
+
+                     <div class="auth-form__divider">
+                        <span class="auth-form__divider-text">or</span>
+                     </div>
+
+                     <button type="button" class="auth-form__google button button--google" id="googleRegisterButton">
+                        <span class="button__icon">
+                           <img src="img/icons/google.svg" alt="">
+                        </span>
+                        <span class="button__text">Sign up with Google</span>
+                     </button>
+
+                     <p class="auth-form__login">
+                        Already have an account?
+                        <a href="login.html" class="auth-form__login-link">Log In</a>
+                     </p>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <script src="/js/config/config.js"></script>
+   <script src="/js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="/js/auth/register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Biometric data</title>
+</head>
+
+<body class="biometric-page">
+   <div class="page">
+      <header class="page__header header">
+         <div class="header__container">
+            <div class="header__row">
+               <a href="landing.html" class="header__logo">
+                  <span class="header__logo-icon">
+                     <img src="img/icons/Logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <div class="header__actions">
+                  <button type="button" class="header__back" data-action="prev-step">
+                     <span class="header__back-icon">
+                        <img src="img/icons/arrow-back-icon.svg" alt="">
+                     </span>
+                     <span class="header__back-text">Back</span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <main class="page__main">
+         <div class="page__container">
+            <form action="#" class="setup-form" id="setupForm">
+
+               <div class="setup-form__message" id="setupMessage"></div>
+
+               <section class="page__steps steps" aria-label="Progress">
+                  <div class="steps__item steps__item--active" data-step-indicator="1">
+                     <div class="steps__circle">
+                        <span class="steps__number">1</span>
+                        <img src="img/icons/check-icon.svg" alt="" class="steps__icon">
+                     </div>
+                     <h2 class="steps__title">Biometrics</h2>
+                  </div>
+
+                  <div class="steps__item" data-step-indicator="2">
+                     <div class="steps__circle">
+                        <span class="steps__number">2</span>
+                        <img src="img/icons/check-icon.svg" alt="" class="steps__icon">
+                     </div>
+                     <h2 class="steps__title">Experience</h2>
+                  </div>
+
+                  <div class="steps__item" data-step-indicator="3">
+                     <div class="steps__circle">
+                        <span class="steps__number">3</span>
+                        <img src="img/icons/check-icon.svg" alt="" class="steps__icon">
+                     </div>
+                     <h2 class="steps__title">Schedule</h2>
+                  </div>
+               </section>
+
+               <section class="page__card form-card form-step form-step--active" data-step="1">
+                  <div class="form-card__content">
+                     <h1 class="form-card__title">Let’s set your baseline</h1>
+                     <p class="form-card__text">
+                        We use these biometrics to calculate your recommended starting weights.
+                     </p>
+
+                     <div class="form-card__fields">
+                        <div class="form-card__field field">
+                           <label for="age" class="field__label">Age</label>
+                           <input id="age" name="age" type="number" min="1" class="field__input" placeholder="25"
+                              required>
+                        </div>
+
+                        <div class="form-card__field field field--select">
+                           <label for="gender" class="field__label">Gender</label>
+                           <select id="gender" name="gender" class="field__input field__input--select" required>
+                              <option value="" selected disabled>Select gender</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                           </select>
+                        </div>
+
+                        <div class="form-card__field field">
+                           <label for="weight" class="field__label">Weight (kg)</label>
+                           <input id="weight" name="weight" type="number" step="0.1" min="1" class="field__input"
+                              placeholder="85" required>
+                        </div>
+
+                        <div class="form-card__field field">
+                           <label for="height" class="field__label">Height (cm)</label>
+                           <input id="height" name="height" type="number" min="1" class="field__input" placeholder="180"
+                              required>
+                        </div>
+                     </div>
+
+                     <div class="form-card__actions form-card__actions--end">
+                        <button type="button" class="button button--primary" data-action="next-step">
+                           Next Step
+                        </button>
+                     </div>
+                  </div>
+               </section>
+
+               <section class="page__card form-card form-step" data-step="2">
+                  <div class="form-card__content">
+                     <h1 class="form-card__title">What is your experience?</h1>
+                     <p class="form-card__text">
+                        This adjusts the intensity of your generated routines.
+                     </p>
+
+                     <div class="form-card__options">
+                        <label class="option-card">
+                           <input class="option-card__input" type="radio" name="experience" value="beginner">
+                           <span class="option-card__control"></span>
+                           <span class="option-card__content">
+                              <span class="option-card__title">Beginner</span>
+                              <span class="option-card__text">
+                                 I am new to lifting or returning after a long break.
+                              </span>
+                           </span>
+                        </label>
+
+                        <label class="option-card">
+                           <input class="option-card__input" type="radio" name="experience" value="intermediate">
+                           <span class="option-card__control"></span>
+                           <span class="option-card__content">
+                              <span class="option-card__title">Intermediate</span>
+                              <span class="option-card__text">
+                                 I know my way around the gym and lift consistently.
+                              </span>
+                           </span>
+                        </label>
+
+                        <label class="option-card">
+                           <input class="option-card__input" type="radio" name="experience" value="advanced">
+                           <span class="option-card__control"></span>
+                           <span class="option-card__content">
+                              <span class="option-card__title">Advanced</span>
+                              <span class="option-card__text">
+                                 I have years of experience and track my 1-Rep Maxes.
+                              </span>
+                           </span>
+                        </label>
+                     </div>
+
+                     <div class="form-card__bottom">
+                        <button type="button" class="form-card__back-link" data-action="prev-step">Back</button>
+                        <button type="button" class="button button--primary" data-action="next-step">
+                           Next Step
+                        </button>
+                     </div>
+                  </div>
+               </section>
+
+               <section class="page__card form-card form-step" data-step="3">
+                  <div class="form-card__content">
+                     <h1 class="form-card__title">Pick your training days</h1>
+                     <p class="form-card__text">
+                        Select the days you want to work out. We'll build a schedule around this.
+                     </p>
+
+                     <div class="form-card__days days-select">
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="mon">
+                           <span class="day-card__text">Mon</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="tue">
+                           <span class="day-card__text">Tue</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="wed">
+                           <span class="day-card__text">Wed</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="thu">
+                           <span class="day-card__text">Thu</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="fri">
+                           <span class="day-card__text">Fri</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="sat">
+                           <span class="day-card__text">Sat</span>
+                        </label>
+
+                        <label class="day-card">
+                           <input class="day-card__input" type="checkbox" name="trainingDays" value="sun">
+                           <span class="day-card__text">Sun</span>
+                        </label>
+                     </div>
+
+                     <div class="form-card__bottom">
+                        <button type="button" class="form-card__back-link" data-action="prev-step">Back</button>
+                        <button type="submit" class="button button--submit">Save</button>
+                     </div>
+                  </div>
+               </section>
+
+            </form>
+         </div>
+      </main>
+   </div>
+
+   <script src="./js/config/config.js"></script>
+   <script src="./js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="./js/auth/biometric.js"></script>
+</body>
+
+
+
+</html>

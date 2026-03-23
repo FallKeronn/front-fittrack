@@ -1,0 +1,366 @@
+.pricing-page {
+   .auth {
+      min-height: 100vh;
+      padding: 0 0 48px;
+
+      &__container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 20px;
+      }
+   }
+
+   .pricing {
+      padding-top: 12px;
+
+      &__list {
+         display: grid;
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+         gap: 16px;
+         align-items: stretch;
+      }
+
+      &__card {
+         min-width: 0;
+      }
+   }
+
+   .plan-card {
+      min-height: 536px;
+      border-radius: 15px;
+      padding: 48px 48px 40px;
+      box-shadow: $shadow;
+      display: flex;
+      flex-direction: column;
+
+      &--pro {
+         background: $header-gradient;
+         color: #ffffff;
+
+         .plan-card__brand-title,
+         .plan-card__label,
+         .plan-card__description,
+         .plan-card__price,
+         .plan-card__price-value,
+         .plan-card__price-period,
+         .plan-card__feature {
+            color: #ffffff;
+         }
+      }
+
+      &--free {
+         background: #ffffff;
+         color: $text-primary;
+
+         .plan-card__brand-title,
+         .plan-card__label,
+         .plan-card__description,
+         .plan-card__price,
+         .plan-card__price-value,
+         .plan-card__price-period,
+         .plan-card__feature {
+            color: $text-primary;
+         }
+      }
+
+      &__head {
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+         gap: 24px;
+         margin-bottom: 18px;
+      }
+
+      &__brand {
+         display: inline-flex;
+         align-items: center;
+         gap: 18px;
+         min-width: 0;
+      }
+
+      &__brand-icon {
+         width: 44px;
+         height: 44px;
+         flex: 0 0 44px;
+
+         img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+         }
+      }
+
+      &__brand-title {
+         font-size: 34px;
+         line-height: 1.1;
+         font-weight: 700;
+      }
+
+      &__label {
+         font-size: 40px;
+         line-height: 1.1;
+         font-weight: 700;
+         text-align: right;
+         flex-shrink: 0;
+      }
+
+      &__description {
+         margin: 0 0 24px;
+         font-size: 24px;
+         line-height: 1.35;
+         font-weight: 400;
+      }
+
+      &__price {
+         display: flex;
+         align-items: flex-end;
+         gap: 4px;
+         margin-bottom: 26px;
+      }
+
+      &__price-value {
+         font-size: 40px;
+         line-height: 1;
+         font-weight: 700;
+      }
+
+      &__price-period {
+         font-size: 24px;
+         line-height: 1.2;
+         font-weight: 400;
+      }
+
+      &__features {
+         list-style: none;
+         padding: 0;
+         margin: 0 0 36px;
+         display: grid;
+         gap: 22px;
+         flex: 1 1 auto;
+      }
+
+      &__feature {
+         position: relative;
+         padding-left: 28px;
+         font-size: 24px;
+         line-height: 1.35;
+         font-weight: 400;
+
+         &::before {
+            content: "✔";
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 700;
+         }
+      }
+
+      &__button {
+         width: 100%;
+         max-width: 300px;
+         min-height: 58px;
+         margin: 0 auto;
+         padding: 0 28px;
+         border-radius: 15px;
+         font-size: 24px;
+         line-height: 1;
+         font-weight: 700;
+         white-space: nowrap;
+         box-shadow: none;
+      }
+
+      &__button--light {
+         background: #ffffff;
+         color: #8a88ec;
+      }
+   }
+}
+
+@media (max-width: 1200px) {
+   .pricing-page {
+      .plan-card {
+         padding: 40px 32px 32px;
+
+         &__brand-title {
+            font-size: 30px;
+         }
+
+         &__label {
+            font-size: 34px;
+         }
+
+         &__description {
+            font-size: 20px;
+         }
+
+         &__price-value {
+            font-size: 42px;
+         }
+
+         &__price-period {
+            font-size: 21px;
+         }
+
+         &__feature {
+            font-size: 22px;
+
+            &::before {
+               font-size: 22px;
+            }
+         }
+
+         &__button {
+            font-size: 22px;
+         }
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .pricing-page {
+      .pricing {
+         &__list {
+            grid-template-columns: 1fr;
+         }
+      }
+
+      .plan-card {
+         min-height: auto;
+
+         &__head {
+            margin-bottom: 16px;
+         }
+
+         &__features {
+            gap: 18px;
+         }
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .pricing-page {
+      .auth {
+         padding-bottom: 32px;
+      }
+
+      .plan-card {
+         border-radius: 15px;
+         padding: 28px 20px 24px;
+
+         &__head {
+            gap: 16px;
+         }
+
+         &__brand {
+            gap: 12px;
+         }
+
+         &__brand-icon {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 38px;
+         }
+
+         &__brand-title {
+            font-size: 26px;
+         }
+
+         &__label {
+            font-size: 28px;
+         }
+
+         &__description {
+            font-size: 18px;
+            margin-bottom: 20px;
+         }
+
+         &__price {
+            margin-bottom: 22px;
+         }
+
+         &__price-value {
+            font-size: 36px;
+         }
+
+         &__price-period {
+            font-size: 18px;
+         }
+
+         &__features {
+            margin-bottom: 28px;
+            gap: 16px;
+         }
+
+         &__feature {
+            padding-left: 24px;
+            font-size: 18px;
+
+            &::before {
+               font-size: 18px;
+            }
+         }
+
+         &__button {
+            min-height: 50px;
+            max-width: 100%;
+            font-size: 20px;
+         }
+      }
+   }
+}
+
+@media (max-width: 480px) {
+   .pricing-page {
+      .auth {
+         &__container {
+            padding: 0 16px;
+         }
+      }
+
+      .pricing {
+         &__list {
+            gap: 14px;
+         }
+      }
+
+      .plan-card {
+         padding: 24px 16px 20px;
+
+         &__head {
+            flex-direction: column;
+            align-items: flex-start;
+         }
+
+         &__label {
+            text-align: left;
+         }
+
+         &__brand-title {
+            font-size: 24px;
+         }
+
+         &__description {
+            font-size: 16px;
+         }
+
+         &__price-value {
+            font-size: 32px;
+         }
+
+         &__price-period {
+            font-size: 16px;
+         }
+
+         &__feature {
+            font-size: 16px;
+         }
+
+         &__button {
+            font-size: 18px;
+         }
+      }
+   }
+}

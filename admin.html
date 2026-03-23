@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/app.css">
+   <title>Admin panel</title>
+</head>
+
+<body>
+   <div class="wrapper">
+
+      <header class="header">
+         <div class="header__container">
+
+            <div class="header__logo">
+               <a href="#" class="header__logo-brand">
+                  <span class="header__logo-img">
+                     <img src="/img/header/logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <nav class="header__nav">
+                  <a href="#" class="header__announcement" id="adminAnnouncementButton">
+                     Broadcast Announcement
+                  </a>
+               </nav>
+            </div>
+
+         </div>
+      </header>
+
+      <main class="admin-page">
+         <div class="admin-page__container" id="adminPageContainer">
+
+            <section class="admin-overview">
+               <h1 class="admin-page__title">Platform Overview</h1>
+
+               <div class="admin-overview__grid">
+
+                  <article class="admin-stat-card" id="adminStatTotalUsers">
+                     <h2 class="admin-stat-card__label">Total active users</h2>
+                     <p class="admin-stat-card__value">142</p>
+                  </article>
+
+                  <article class="admin-stat-card" id="adminStatProUsers">
+                     <h2 class="admin-stat-card__label">Pro Subscribers</h2>
+                     <p class="admin-stat-card__value">3</p>
+                  </article>
+
+                  <article class="admin-stat-card" id="adminStatWeeklyWorkouts">
+                     <h2 class="admin-stat-card__label">Weekly Workouts</h2>
+                     <p class="admin-stat-card__value">666</p>
+                  </article>
+
+                  <article class="admin-stat-card" id="adminStatTopRoutine">
+                     <h2 class="admin-stat-card__label">Top Routine</h2>
+                     <p class="admin-stat-card__text">Push Day Hypertrophy</p>
+                  </article>
+
+               </div>
+            </section>
+
+            <section class="admin-section">
+               <div class="admin-section__header">
+                  <h2 class="admin-section__title">User Management</h2>
+               </div>
+
+               <div class="admin-table-card">
+                  <table class="admin-table">
+                     <thead class="admin-table__head">
+                        <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Role</th>
+                           <th>Actions</th>
+                        </tr>
+                     </thead>
+
+                     <tbody class="admin-table__body" id="adminUsersTableBody">
+                        <tr>
+                           <td>Admin User</td>
+                           <td>admin@fittrack.com</td>
+                           <td>
+                              <span class="admin-badge admin-badge--admin">Admin</span>
+                           </td>
+                           <td>
+                              <span class="admin-action admin-action--muted">Protected</span>
+                           </td>
+                        </tr>
+
+                        <tr>
+                           <td>Ryan Gosling</td>
+                           <td>gosling@gmail.com</td>
+                           <td>
+                              <span class="admin-badge admin-badge--pro">Pro</span>
+                           </td>
+                           <td>
+                              <div class="admin-table__actions">
+                                 <button class="admin-action" type="button">Make Free</button>
+                                 <button class="admin-action" type="button">Make Admin</button>
+                              </div>
+                           </td>
+                        </tr>
+
+                        <tr>
+                           <td>Ryan Gosling</td>
+                           <td>gosling@gmail.com</td>
+                           <td>
+                              <span class="admin-badge admin-badge--free">Free</span>
+                           </td>
+                           <td>
+                              <div class="admin-table__actions">
+                                 <button class="admin-action" type="button">Make Pro</button>
+                                 <button class="admin-action" type="button">Make Admin</button>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+
+            <section class="admin-section">
+               <div class="admin-section__header">
+                  <h2 class="admin-section__title">Recycle Bin</h2>
+               </div>
+
+               <div class="admin-table-card">
+                  <table class="admin-table">
+                     <thead class="admin-table__head">
+                        <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Deleted At</th>
+                           <th>Actions</th>
+                        </tr>
+                     </thead>
+
+                     <tbody class="admin-table__body" id="adminDeletedUsersTableBody">
+                        <tr>
+                           <td>Mark Tailor</td>
+                           <td>mark@example.com</td>
+                           <td>
+                              <span class="admin-date admin-date--deleted">2026-03-16 14:20:00</span>
+                           </td>
+                           <td>
+                              <div class="admin-table__actions">
+                                 <button class="admin-action admin-action--restore" type="button">Restore</button>
+                                 <button class="admin-action admin-action--delete" type="button">Permanently
+                                    delete</button>
+                              </div>
+                           </td>
+                        </tr>
+
+                        <tr>
+                           <td>Sarah Connor</td>
+                           <td>sarah@example.com</td>
+                           <td>
+                              <span class="admin-date admin-date--deleted">2026-03-15 12:13:55</span>
+                           </td>
+                           <td>
+                              <div class="admin-table__actions">
+                                 <button class="admin-action admin-action--restore" type="button">Restore</button>
+                                 <button class="admin-action admin-action--delete" type="button">Permanently
+                                    delete</button>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+
+            <section class="admin-section">
+               <div class="admin-section__header">
+                  <h2 class="admin-section__title">System Audit Logs</h2>
+               </div>
+
+               <div class="admin-logs" id="adminLogs">
+                  <article class="admin-log-item">
+                     <div class="admin-log-item__icon">
+                        <span>&gt;_</span>
+                     </div>
+
+                     <div class="admin-log-item__content">
+                        <p class="admin-log-item__text">
+                           <strong>Admin User</strong> performed
+                           <span class="admin-log-item__tag">created_training</span>
+                        </p>
+
+                        <pre class="admin-log-item__meta">{"name":"Advanced Leg Day"}</pre>
+
+                        <p class="admin-log-item__time">
+                           5 minutes ago
+                        </p>
+                     </div>
+                  </article>
+
+                  <article class="admin-log-item">
+                     <div class="admin-log-item__icon">
+                        <span>&gt;_</span>
+                     </div>
+
+                     <div class="admin-log-item__content">
+                        <p class="admin-log-item__text">
+                           <strong>Admin User</strong> performed
+                           <span class="admin-log-item__tag">changed_user_role</span>
+                        </p>
+
+                        <pre class="admin-log-item__meta">{"to":"pro","target_user_id":2}</pre>
+
+                        <p class="admin-log-item__time">
+                           2 hours ago
+                        </p>
+                     </div>
+                  </article>
+
+                  <article class="admin-log-item">
+                     <div class="admin-log-item__icon">
+                        <span>&gt;_</span>
+                     </div>
+
+                     <div class="admin-log-item__content">
+                        <p class="admin-log-item__text">
+                           <strong>Admin User</strong> performed
+                           <span class="admin-log-item__tag">permanently_deleted_user</span>
+                        </p>
+
+                        <pre class="admin-log-item__meta">{"target_user_id":5}</pre>
+
+                        <p class="admin-log-item__time">
+                           1 day ago
+                        </p>
+                     </div>
+                  </article>
+               </div>
+            </section>
+
+         </div>
+      </main>
+
+   </div>
+
+   <script src="./js/config/config.js"></script>
+   <script src="./js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="./js/admin.js"></script>
+</body>
+
+</html>

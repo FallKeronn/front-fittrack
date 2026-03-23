@@ -1,0 +1,440 @@
+.subscription-page {
+   padding: 24px 33px 26px 20px;
+   width: 100%;
+   background-color: $bg-main;
+
+   &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+   }
+}
+
+.subscription-card {
+   min-width: 0;
+   min-height: 575px;
+   border-radius: 20px;
+   box-shadow: $shadow;
+   padding: 34px 42px 36px;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+
+   &--free {
+      background: #fbfbfc;
+      color: $text-primary;
+
+      .subscription-card__brand-title {
+         color: #aa96ef;
+      }
+
+      .subscription-card__plan,
+      .subscription-card__description,
+      .subscription-card__price-value,
+      .subscription-card__price-period,
+      .subscription-card__feature {
+         color: $text-primary;
+      }
+
+      .subscription-card__brand-icon {
+         background: rgba(127, 145, 234, 0.12);
+      }
+   }
+
+   &--pro {
+      background: $header-gradient;
+      color: #fff;
+
+      .subscription-card__brand-title,
+      .subscription-card__plan,
+      .subscription-card__description,
+      .subscription-card__price-value,
+      .subscription-card__price-period,
+      .subscription-card__feature {
+         color: #fff;
+      }
+
+
+   }
+
+   &__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+   }
+
+   &__brand {
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+   }
+
+   &__brand-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+         width: 44px;
+         height: 44px;
+         object-fit: contain;
+         display: block;
+      }
+   }
+
+   &__brand-title {
+      font-size: 42px;
+      line-height: 1.05;
+      font-weight: 700;
+   }
+
+   &__plan {
+      flex-shrink: 0;
+      font-size: 42px;
+      line-height: 1.05;
+      font-weight: 700;
+      text-align: right;
+   }
+
+   &__description {
+      margin: 0 0 26px;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 400;
+   }
+
+   &__price {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      margin-bottom: 28px;
+   }
+
+   &__price-value {
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 700;
+   }
+
+   &__price-period {
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 400;
+   }
+
+   &__features {
+      margin: 0 0 34px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 22px;
+      flex: 1 1 auto;
+   }
+
+   &__feature {
+      position: relative;
+      padding-left: 30px;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 400;
+
+      &::before {
+         content: "✔";
+         position: absolute;
+         top: 0;
+         left: 0;
+         font-size: 24px;
+         line-height: 1.2;
+         font-weight: 700;
+      }
+   }
+
+   &__actions {
+      display: flex;
+      justify-content: center;
+   }
+
+   &__button {
+      min-width: 320px;
+      min-height: 58px;
+      padding: 0 28px;
+      border: none;
+      border-radius: 14px;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+         opacity: 0.94;
+      }
+   }
+
+   &__button--gradient {
+      background: $header-gradient;
+      color: #fff;
+   }
+
+   &__button--light {
+      background: #ffffff;
+      color: #8c80df;
+   }
+
+   &__button {
+      min-width: 320px;
+      min-height: 58px;
+      padding: 0 28px;
+      border: none;
+      border-radius: 14px;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover:not(:disabled) {
+         opacity: 0.94;
+      }
+
+      &:disabled {
+         cursor: not-allowed;
+         opacity: 0.8;
+      }
+   }
+
+   &__button--gradient {
+      background: $header-gradient;
+      color: #fff;
+
+      &:disabled {
+         box-shadow: none;
+      }
+   }
+
+   &__button--light {
+      background: #ffffff;
+      color: #8c80df;
+
+      &:disabled {
+         background: rgba(255, 255, 255, 0.8);
+         color: #8c80df;
+      }
+   }
+}
+
+@media (max-width: 1200px) {
+   .subscription-page {
+      padding: 20px 16px 24px 12px;
+   }
+
+   .subscription-card {
+      min-height: 500px;
+      padding: 28px 28px 30px;
+
+      &__brand {
+         gap: 12px;
+      }
+
+      &__brand-icon {
+         width: 46px;
+         height: 46px;
+         flex: 0 0 46px;
+
+         img {
+            width: 28px;
+            height: 28px;
+         }
+      }
+
+      &__brand-title {
+         font-size: 32px;
+      }
+
+      &__plan {
+         font-size: 32px;
+      }
+
+      &__description {
+         margin-bottom: 22px;
+         font-size: 20px;
+      }
+
+      &__price {
+         margin-bottom: 24px;
+      }
+
+      &__price-value {
+         font-size: 42px;
+      }
+
+      &__price-period {
+         font-size: 22px;
+      }
+
+      &__features {
+         gap: 18px;
+         margin-bottom: 28px;
+      }
+
+      &__feature {
+         font-size: 20px;
+
+         &::before {
+            font-size: 20px;
+         }
+      }
+
+      &__button {
+         min-width: 260px;
+         min-height: 52px;
+         font-size: 20px;
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .subscription-page {
+      &__grid {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   .subscription-card {
+      min-height: auto;
+   }
+}
+
+@media (max-width: 768px) {
+   .subscription-page {
+      padding: 18px 14px 20px;
+
+      &__grid {
+         gap: 16px;
+      }
+   }
+
+   .subscription-card {
+      border-radius: 16px;
+      padding: 22px 18px 20px;
+
+      &__head {
+         gap: 14px;
+         margin-bottom: 14px;
+      }
+
+      &__brand {
+         gap: 10px;
+      }
+
+      &__brand-icon {
+         width: 40px;
+         height: 40px;
+         flex: 0 0 40px;
+
+         img {
+            width: 24px;
+            height: 24px;
+         }
+      }
+
+      &__brand-title {
+         font-size: 26px;
+      }
+
+      &__plan {
+         font-size: 26px;
+      }
+
+      &__description {
+         margin-bottom: 18px;
+         font-size: 17px;
+      }
+
+      &__price {
+         margin-bottom: 20px;
+      }
+
+      &__price-value {
+         font-size: 34px;
+      }
+
+      &__price-period {
+         font-size: 18px;
+      }
+
+      &__features {
+         gap: 14px;
+         margin-bottom: 22px;
+      }
+
+      &__feature {
+         padding-left: 24px;
+         font-size: 17px;
+
+         &::before {
+            font-size: 17px;
+         }
+      }
+
+      &__button {
+         width: 100%;
+         min-width: 0;
+         min-height: 46px;
+         font-size: 18px;
+         border-radius: 12px;
+      }
+   }
+}
+
+@media (max-width: 480px) {
+   .subscription-card {
+      padding: 18px 14px 16px;
+
+      &__head {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+
+      &__plan {
+         text-align: left;
+      }
+
+      &__brand-title {
+         font-size: 24px;
+      }
+
+      &__plan {
+         font-size: 24px;
+      }
+
+      &__description {
+         font-size: 16px;
+      }
+
+      &__price-value {
+         font-size: 30px;
+      }
+
+      &__price-period {
+         font-size: 16px;
+      }
+
+      &__feature {
+         font-size: 16px;
+      }
+
+      &__button {
+         min-height: 44px;
+         font-size: 16px;
+      }
+   }
+}

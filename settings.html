@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/app.css">
+   <title>Settings</title>
+</head>
+
+<body>
+   <div class="wrapper">
+
+      <header class="header">
+         <div class="header__container">
+
+            <div class="header__logo">
+               <a href="dashboard.html" class="header__logo-brand">
+                  <span class="header__logo-img">
+                     <img src="/img/header/logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <nav class="header__nav">
+
+                  <button class="header__burger" id="burgerButton" type="button" aria-label="Open menu"
+                     aria-expanded="false" aria-controls="sidebarMenu">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </button>
+
+                  <a href="#" class="header__logout" id="logoutButton" aria-label="Logout">
+                     <img src="/img/header/logout.svg" alt="">
+                  </a>
+               </nav>
+            </div>
+
+         </div>
+      </header>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <div class="page-layout">
+
+         <aside class="sidebar" id="sidebarMenu">
+
+            <div class="sidebar__card">
+
+               <div class="sidebar__profile-card">
+
+                  <div class="profile-card__header">
+                     <div class="profile-card__avatar">
+                        <img id="profileAvatar" src="" alt="">
+                     </div>
+                  </div>
+
+                  <div class="profile-card__info">
+
+                     <h2 class="profile-card__name" id="profileName">
+                        Loading...
+                     </h2>
+
+                     <p class="profile-card__meta" id="profileMeta">
+                        Loading...
+                     </p>
+
+                  </div>
+
+                  <div class="profile-card__stats">
+
+                     <div class="profile-card__stat">
+                        <span class="profile-card__label">Height</span>
+
+                        <span class="profile-card__value">
+                           <strong id="profileHeight">--</strong> cm
+                        </span>
+                     </div>
+
+                     <div class="profile-card__stat">
+                        <span class="profile-card__label">Weight</span>
+
+                        <span class="profile-card__value">
+                           <strong id="profileWeight">--</strong> kg
+                        </span>
+                     </div>
+
+                  </div>
+
+               </div>
+            </div>
+
+            <nav class="menu">
+
+               <a href="dashboard.html" class="menu__item">
+                  <span class="menu__icon">
+                     <img src="/img/sidebar/Home.svg" alt="">
+                  </span>
+                  <span class="menu__text">Home</span>
+               </a>
+
+               <a href="workouts.html" class="menu__item">
+                  <span class="menu__icon">
+                     <img src="/img/sidebar/training.svg" alt="">
+                  </span>
+                  <span class="menu__text">All trainings</span>
+               </a>
+
+               <a href="statistics.html" class="menu__item">
+                  <span class="menu__icon">
+                     <img src="/img/sidebar/Statistics.svg" alt="">
+                  </span>
+                  <span class="menu__text">Statistics</span>
+               </a>
+
+               <a href="subscription.html" class="menu__item">
+                  <span class="menu__icon">
+                     <img src="/img/sidebar/Sub.svg" alt="">
+                  </span>
+                  <span class="menu__text">Subscription</span>
+               </a>
+
+               <a href="settings.html" class="menu__item menu__item--active">
+                  <span class="menu__icon">
+                     <img src="/img/sidebar/Settings.svg" alt="">
+                  </span>
+                  <span class="menu__text">Settings</span>
+               </a>
+
+            </nav>
+         </aside>
+
+         <main class="page-content">
+            <section class="settings-page">
+
+               <div class="settings-page__content">
+
+                  <article class="settings-card">
+                     <div class="settings-card__header">
+                        <h1 class="settings-card__title">Biometrics & Parameters</h1>
+                        <p class="settings-card__subtitle">
+                           Updating these will recalculate your future recommended weights.
+                        </p>
+                     </div>
+
+                     <form class="settings-form" id="biometricsForm">
+                        <div class="settings-form__row settings-form__row--half">
+                           <div class="settings-form__field">
+                              <label class="settings-form__label" for="bodyWeight">Body Weight (kg)</label>
+                              <input class="settings-form__input" id="bodyWeight" type="number" step="0.1" min="0"
+                                 placeholder="Enter weight">
+                           </div>
+
+                           <div class="settings-form__field">
+                              <label class="settings-form__label" for="bodyHeight">Height (cm)</label>
+                              <input class="settings-form__input" id="bodyHeight" type="number" step="1" min="0"
+                                 placeholder="Enter height">
+                           </div>
+                        </div>
+
+                        <div class="settings-form__row">
+                           <div class="settings-form__field">
+                              <label class="settings-form__label" for="experienceLevel">Experience Level</label>
+                              <div class="settings-form__select-wrap">
+                                 <select class="settings-form__select" id="experienceLevel">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="settings-form__actions">
+                           <button class="settings-form__button" id="saveBiometricsButton" type="submit">
+                              Save
+                           </button>
+                        </div>
+                     </form>
+                  </article>
+
+                  <article class="settings-card settings-card--danger">
+                     <div class="settings-card__header">
+                        <h2 class="settings-card__title">Danger Zone</h2>
+                        <p class="settings-card__subtitle">
+                           Deleting your account will deactivate it and schedule it for removal.
+                        </p>
+                     </div>
+
+                     <div class="settings-danger">
+                        <button class="settings-danger__button" id="deleteAccountButton" type="button">
+                           Delete account
+                        </button>
+                     </div>
+                  </article>
+
+               </div>
+
+            </section>
+         </main>
+      </div>
+
+   </div>
+
+   <script src="./js/config/config.js"></script>
+   <script src="./js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="./js/sidebar.js"></script>
+   <script src="./js/settings.js"></script>
+   <script src="./js/auth/logout.js"></script>
+   <script src="./js/burger-menu.js"></script>
+</body>
+
+</html>

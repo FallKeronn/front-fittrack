@@ -1,0 +1,456 @@
+.workout-details-page {
+   padding: 24px 33px 26px 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+   width: 100%;
+   background-color: $bg-main;
+
+   &__top {
+      display: flex;
+      align-items: center;
+   }
+
+   &__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $text-primary;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+         opacity: 0.75;
+      }
+   }
+
+   &__content {
+      width: 100%;
+   }
+
+   &__empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      background: $bg-card;
+      border-radius: 15px;
+      box-shadow: $shadow;
+      padding: 24px;
+   }
+
+   &__empty-text {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: $text-secondary;
+      text-align: center;
+   }
+}
+
+.workout-details {
+   display: flex;
+   flex-direction: column;
+   gap: 18px;
+
+   &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px 28px;
+      background: $bg-card;
+      border-radius: 15px;
+      box-shadow: $shadow;
+   }
+
+   &__header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+   }
+
+   &__header-info {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+
+   &__header-actions {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 700;
+      color: $text-primary;
+   }
+
+   &__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+
+   &__meta-item {
+      font-size: 18px;
+      color: $text-secondary;
+      line-height: 1.4;
+   }
+
+   &__meta-label {
+      font-weight: 700;
+      color: $text-primary;
+   }
+
+   &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+   }
+
+   &__footer {
+      display: flex;
+      justify-content: flex-end;
+   }
+
+   &__start,
+   &__finish {
+      min-width: 220px;
+      min-height: 56px;
+      padding: 0 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+   }
+
+   &__start {
+      background: linear-gradient(135deg, #8eaef8 0%, #c5a6f6 100%);
+      box-shadow: 0 10px 24px rgba(154, 133, 225, 0.28);
+
+      &:hover:not(:disabled) {
+         transform: translateY(-1px);
+         box-shadow: 0 14px 28px rgba(154, 133, 225, 0.36);
+      }
+   }
+
+   &__finish {
+      background: linear-gradient(135deg, #7fd8c9 0%, #6fc3b5 100%);
+      box-shadow: 0 10px 24px rgba(111, 195, 181, 0.28);
+
+      &:hover:not(:disabled) {
+         transform: translateY(-1px);
+         box-shadow: 0 14px 28px rgba(111, 195, 181, 0.36);
+      }
+   }
+
+   &__start:disabled,
+   &__finish:disabled {
+      background: #d9dbe3;
+      color: #8f93a3;
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+      opacity: 0.7;
+   }
+}
+
+.exercise-card {
+   background: $bg-card;
+   border: 2px solid rgba(151, 126, 255, 0.45);
+   border-radius: 15px;
+   overflow: hidden;
+   box-shadow: $shadow;
+
+   &__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 22px 18px;
+      background: rgba(151, 126, 255, 0.12);
+      border-bottom: 1px solid rgba(151, 126, 255, 0.2);
+   }
+
+   &__info {
+      min-width: 0;
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+      color: $text-primary;
+   }
+
+   &__target {
+      margin: 4px 0 0;
+      font-size: 16px;
+      color: $text-secondary;
+   }
+
+   &__info-btn {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+      color: $text-primary;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+         background-color: rgba(20, 54, 75, 0.08);
+      }
+   }
+
+   &__table {
+      padding: 16px 22px 22px;
+   }
+
+   &__table-head {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 4px;
+
+      span {
+         font-size: 15px;
+         font-weight: 700;
+         color: $text-secondary;
+      }
+   }
+
+   &__table-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+   }
+
+   &__row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 16px;
+      background: rgba(151, 126, 255, 0.08);
+      border-radius: 15px;
+   }
+
+   &__cell {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid rgba(20, 54, 75, 0.08);
+      font-size: 16px;
+      color: $text-primary;
+   }
+
+   &__cell--set {
+      background: transparent;
+      border: none;
+      justify-content: flex-start;
+      font-weight: 700;
+   }
+
+   &__counter {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      align-items: center;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid rgba(20, 54, 75, 0.08);
+      overflow: hidden;
+   }
+
+   &__counter-btn {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      color: $text-primary;
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+         background-color: rgba(20, 54, 75, 0.06);
+      }
+   }
+
+   &__counter-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      padding: 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $text-primary;
+      text-align: center;
+   }
+}
+
+@media (max-width: 1200px) {
+   .workout-details-page {
+      padding: 20px 16px 24px 12px;
+   }
+
+   .workout-details {
+      &__title {
+         font-size: 28px;
+      }
+
+      &__meta-item {
+         font-size: 16px;
+      }
+   }
+
+   .exercise-card {
+      &__title {
+         font-size: 20px;
+      }
+
+      &__target {
+         font-size: 14px;
+      }
+
+      &__table-head {
+         grid-template-columns: 64px 1fr 1fr;
+      }
+
+      &__row {
+         grid-template-columns: 64px 1fr 1fr;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .workout-details-page {
+      padding: 18px 14px 20px;
+
+      &__back {
+         font-size: 14px;
+      }
+
+      &__empty {
+         min-height: 160px;
+         padding: 18px;
+      }
+
+      &__empty-text {
+         font-size: 16px;
+      }
+   }
+
+   .workout-details {
+      &__header {
+         padding: 18px 16px;
+      }
+
+      &__header-top {
+         flex-direction: column;
+         align-items: stretch;
+      }
+
+      &__title {
+         font-size: 24px;
+      }
+
+      &__meta-item {
+         font-size: 14px;
+      }
+
+      &__footer {
+         justify-content: stretch;
+      }
+
+      &__start,
+      &__finish {
+         width: 100%;
+      }
+   }
+
+   .exercise-card {
+      border-radius: 15px;
+
+      &__header {
+         padding: 16px 16px 14px;
+      }
+
+      &__title {
+         font-size: 18px;
+      }
+
+      &__target {
+         font-size: 13px;
+      }
+
+      &__table {
+         padding: 14px 16px 16px;
+      }
+
+      &__table-head {
+         grid-template-columns: 52px 1fr 1fr;
+         gap: 10px;
+
+         span {
+            font-size: 12px;
+         }
+      }
+
+      &__row {
+         grid-template-columns: 52px 1fr 1fr;
+         gap: 10px;
+         padding: 10px 12px;
+      }
+
+      &__cell {
+         min-height: 38px;
+         font-size: 14px;
+      }
+
+      &__counter {
+         min-height: 38px;
+         grid-template-columns: 38px 1fr 38px;
+      }
+
+      &__counter-btn {
+         width: 38px;
+         height: 38px;
+         font-size: 18px;
+      }
+
+      &__counter-value {
+         font-size: 14px;
+      }
+   }
+}

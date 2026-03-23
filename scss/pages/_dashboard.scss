@@ -1,0 +1,184 @@
+.dashboard-content {
+   flex: 1;
+   padding: 25px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+   background-color: $bg-main;
+   min-width: 0;
+}
+
+.dashboard-hero {
+   &__title {
+      font-size: 46px;
+      color: $text-primary;
+      line-height: 1.1;
+   }
+
+   &__subtitle {
+      margin: 0;
+      font-size: 40px;
+      color: $text-secondary;
+      line-height: 1.1;
+   }
+}
+
+.weekly-training {
+   background: $bg-card;
+   border-radius: 15px;
+   padding: 22px 48px;
+   box-shadow: $shadow;
+   min-width: 0;
+
+   &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 38px;
+      color: $text-primary;
+   }
+
+   &__streak {
+      margin: 0;
+      font-size: 20px;
+      color: $text-primary;
+      white-space: nowrap;
+   }
+
+   &__track {
+      width: 100%;
+      min-width: 0;
+   }
+
+   &__list {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 16px;
+   }
+}
+
+.dashboard-bottom {
+   display: grid;
+   grid-template-columns: 1.1fr 1fr;
+   gap: 20px;
+   min-width: 0;
+}
+
+@media (max-width: 1200px) {
+   .dashboard-content {
+      padding: 20px 16px 24px 12px;
+      gap: 20px;
+   }
+
+   .dashboard-hero {
+      &__title {
+         font-size: 28px;
+      }
+
+      &__subtitle {
+         font-size: 24px;
+      }
+   }
+
+   .weekly-training {
+      padding: 18px 24px;
+
+      &__header {
+         margin-bottom: 16px;
+      }
+
+      &__title {
+         font-size: 28px;
+      }
+
+      &__streak {
+         font-size: 16px;
+      }
+
+      &__track {
+         overflow-x: auto;
+         padding-bottom: 6px;
+         margin-bottom: -6px;
+
+         &::-webkit-scrollbar {
+            height: 6px;
+         }
+
+         &::-webkit-scrollbar-thumb {
+            background: rgba(154, 133, 225, 0.45);
+            border-radius: 999px;
+         }
+      }
+
+      &__list {
+         display: flex;
+         gap: 14px;
+         min-width: max-content;
+      }
+   }
+
+   .dashboard-bottom {
+      grid-template-columns: 1fr;
+      gap: 18px;
+   }
+}
+
+@media (max-width: 768px) {
+   .dashboard-content {
+      padding: 18px 14px 20px;
+      gap: 16px;
+   }
+
+   .dashboard-hero {
+      &__title {
+         font-size: 24px;
+      }
+
+      &__subtitle {
+         font-size: 20px;
+      }
+   }
+
+   .weekly-training {
+      padding: 14px 16px;
+      border-radius: 15px;
+
+      &__header {
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 10px;
+         margin-bottom: 14px;
+      }
+
+      &__title {
+         font-size: 24px;
+      }
+
+      &__streak {
+         font-size: 14px;
+         white-space: normal;
+      }
+
+      &__track {
+         overflow-x: auto;
+         padding-bottom: 6px;
+         margin-bottom: -6px;
+      }
+
+      &__list {
+         display: flex;
+         gap: 12px;
+         min-width: max-content;
+      }
+   }
+
+   .dashboard-bottom {
+      gap: 16px;
+   }
+}

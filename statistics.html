@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/app.css">
+   <title>Statistic</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__container">
+            <div class="header__logo">
+               <a href="dashboard.html" class="header__logo-brand">
+                  <span class="header__logo-img">
+                     <img src="/img/header/logo.svg" alt="FitTrack logo">
+                  </span>
+                  <span class="header__logo-title">FitTrack</span>
+               </a>
+
+               <nav class="header__nav">
+
+                  <button class="header__burger" id="burgerButton" type="button" aria-label="Open menu"
+                     aria-expanded="false" aria-controls="sidebarMenu">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </button>
+
+                  <a href="#" class="header__logout" id="logoutButton" aria-label="Logout">
+                     <img src="/img/header/logout.svg" alt="">
+                  </a>
+               </nav>
+            </div>
+         </div>
+      </header>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <div class="page-layout">
+         <aside class="sidebar" id="sidebarMenu">
+            <div class="sidebar__card">
+               <div class="sidebar__profile-card">
+                  <div class="profile-card__header">
+                     <div class="profile-card__avatar">
+                        <img id="profileAvatar" src="" alt="">
+                     </div>
+                  </div>
+
+                  <div class="profile-card__info">
+                     <h2 class="profile-card__name" id="profileName">Loading...</h2>
+                     <p class="profile-card__meta" id="profileMeta">Loading...</p>
+                  </div>
+
+                  <div class="profile-card__stats">
+                     <div class="profile-card__stat">
+                        <span class="profile-card__label">Height</span>
+                        <span class="profile-card__value">
+                           <strong id="profileHeight">--</strong> cm
+                        </span>
+                     </div>
+
+                     <div class="profile-card__stat">
+                        <span class="profile-card__label">Weight</span>
+                        <span class="profile-card__value">
+                           <strong id="profileWeight">--</strong> kg
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <nav class="menu">
+               <a href="dashboard.html" class="menu__item">
+                  <span class="menu__icon"><img src="/img/sidebar/Home.svg" alt=""></span>
+                  <span class="menu__text">Home</span>
+               </a>
+
+               <a href="workouts.html" class="menu__item">
+                  <span class="menu__icon"><img src="/img/sidebar/training.svg" alt=""></span>
+                  <span class="menu__text">All trainings</span>
+               </a>
+
+               <a href="statistics.html" class="menu__item menu__item--active">
+                  <span class="menu__icon"><img src="/img/sidebar/Statistics.svg" alt=""></span>
+                  <span class="menu__text">Statistics</span>
+               </a>
+
+               <a href="subscription.html" class="menu__item">
+                  <span class="menu__icon"><img src="/img/sidebar/Sub.svg" alt=""></span>
+                  <span class="menu__text">Subscription</span>
+               </a>
+
+               <a href="settings.html" class="menu__item">
+                  <span class="menu__icon"><img src="/img/sidebar/Settings.svg" alt=""></span>
+                  <span class="menu__text">Settings</span>
+               </a>
+            </nav>
+         </aside>
+
+         <main class="page-content">
+            <section class="statistics-page">
+               <div class="statistics-page__grid">
+
+                  <article class="statistics-card statistics-card--wide">
+                     <div class="statistics-card__header">
+                        <h2 class="statistics-card__title">Training Volume</h2>
+                     </div>
+
+                     <div class="statistics-card__body statistics-card__body--chart">
+                        <canvas id="volumeChart"></canvas>
+                     </div>
+                  </article>
+
+                  <article class="statistics-card">
+                     <div class="statistics-card__header">
+                        <h2 class="statistics-card__title">Summary</h2>
+                     </div>
+
+                     <div class="statistics-card__body" id="statisticsSummary">
+                        Loading...
+                     </div>
+                  </article>
+
+                  <article class="statistics-card">
+                     <div class="statistics-card__header">
+                        <h2 class="statistics-card__title">Muscle Distribution</h2>
+                     </div>
+
+                     <div class="statistics-card__body statistics-card__body--chart" id="muscleDistributionBlock">
+                        <canvas id="muscleChart"></canvas>
+                     </div>
+                  </article>
+
+               </div>
+            </section>
+         </main>
+      </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="./js/config/config.js"></script>
+   <script src="./js/config/api.js"></script>
+   <script src="./js/auth/auth-guard.js"></script>
+   <script src="./js/sidebar.js"></script>
+   <script src="./js/burger-menu.js"></script>
+   <script src="./js/statistics.js"></script>
+   <script src="./js/auth/logout.js"></script>
+</body>

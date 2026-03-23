@@ -1,0 +1,514 @@
+{
+   "workouts": [
+      {
+         "id": "arm-strength-workout",
+         "title": "Arm Strength Workout",
+         "level": "Beginner",
+         "inventory": "Dumbbells",
+         "image": "ArmStrengthWorkout.png",
+         "exercises": [
+            {
+               "title": "Bicep Curl",
+               "target": "Biceps",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 8,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 8,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 8,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Hammer Curl",
+               "target": "Biceps, Forearms",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 8,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 8,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 6,
+                     "reps": 12,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Overhead Tricep Extension",
+               "target": "Triceps",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 6,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 6,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 6,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id": "upper-body-strength",
+         "title": "Upper Body Strength",
+         "level": "Intermediate",
+         "inventory": "Dumbbells",
+         "image": "UpperBodyStrength.png",
+         "exercises": [
+            {
+               "title": "Dumbbell Bench Press",
+               "target": "Chest, Shoulders",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 16,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 16,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 16,
+                     "reps": 8,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Bent-Over Row",
+               "target": "Back, Lats",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 18,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 18,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 18,
+                     "reps": 8,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Shoulder Press",
+               "target": "Shoulders, Triceps",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 12,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 12,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 12,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id": "full-body-strength",
+         "title": "Full Body Strength",
+         "level": "Intermediate",
+         "inventory": "Barbell",
+         "image": "FullBodyStrength.png",
+         "exercises": [
+            {
+               "title": "Barbell Squat",
+               "target": "Quads, Glutes",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Romanian Deadlift",
+               "target": "Hamstrings",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 70,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Leg Press",
+               "target": "Quads",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 90,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 90,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 90,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Walking Lunges",
+               "target": "Quads, Glutes",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 14,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 14,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 14,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id": "back-posture-training",
+         "title": "Back & Posture Training",
+         "level": "Beginner",
+         "inventory": "Lat pulldown machine",
+         "image": "Back&Posture Training.png",
+         "exercises": [
+            {
+               "title": "Lat Pulldown",
+               "target": "Lats, Upper Back",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 25,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 25,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 25,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Seated Cable Row",
+               "target": "Middle Back",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 20,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 20,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 20,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Face Pull",
+               "target": "Rear Delts, Upper Back",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 12,
+                     "reps": 15,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 12,
+                     "reps": 15,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 12,
+                     "reps": 12,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id": "lower-body-power",
+         "title": "Lower Body Power",
+         "level": "Intermediate",
+         "inventory": "Leg press machine",
+         "image": "LowerBodyPower.png",
+         "exercises": [
+            {
+               "title": "Barbell Back Squat",
+               "target": "Quads, Glutes",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 60,
+                     "reps": 8,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 60,
+                     "reps": 8,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 60,
+                     "reps": 8,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Leg Press",
+               "target": "Quads, Glutes",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 100,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 100,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 100,
+                     "reps": 10,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Bulgarian Split Squat",
+               "target": "Quads, Glutes",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 12,
+                     "reps": 10,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 12,
+                     "reps": 10,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 12,
+                     "reps": 8,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id": "core-stability",
+         "title": "Core & Stability",
+         "level": "Beginner",
+         "inventory": "No equipment",
+         "image": "Core&Stability.png",
+         "exercises": [
+            {
+               "title": "Plank",
+               "target": "Core",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 0,
+                     "reps": 30,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 0,
+                     "reps": 30,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 0,
+                     "reps": 30,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Dead Bug",
+               "target": "Core, Stability",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 0,
+                     "reps": 12,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 0,
+                     "reps": 12,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 0,
+                     "reps": 12,
+                     "done": false
+                  }
+               ]
+            },
+            {
+               "title": "Russian Twist",
+               "target": "Obliques",
+               "sets": [
+                  {
+                     "set": 1,
+                     "kg": 0,
+                     "reps": 20,
+                     "done": true
+                  },
+                  {
+                     "set": 2,
+                     "kg": 0,
+                     "reps": 20,
+                     "done": false
+                  },
+                  {
+                     "set": 3,
+                     "kg": 0,
+                     "reps": 20,
+                     "done": false
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

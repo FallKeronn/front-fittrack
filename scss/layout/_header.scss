@@ -1,0 +1,195 @@
+.header {
+   background: $header-gradient;
+   position: relative;
+   z-index: 30;
+
+   &__container {
+      width: 100%;
+      padding: 0 33px;
+   }
+
+   &__logo {
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__logo-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+   }
+
+   &__logo-img {
+      img {
+         width: 42px;
+         height: 42px;
+         object-fit: contain;
+         display: block;
+      }
+   }
+
+   &__logo-title {
+      font-size: 36px;
+      color: white;
+   }
+
+   &__nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+   }
+
+   &__burger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      transition: background-color 0.2s ease;
+
+      span {
+         display: block;
+         width: 28px;
+         height: 3px;
+         border-radius: 15px;
+         background-color: #fff;
+         transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      &:hover {
+         background-color: rgba(20, 54, 75, 0.06);
+      }
+   }
+
+   &__burger.is-active {
+      span:nth-child(1) {
+         transform: translateY(8px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+         opacity: 0;
+      }
+
+      span:nth-child(3) {
+         transform: translateY(-8px) rotate(-45deg);
+      }
+   }
+
+   &__logout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      text-decoration: none;
+      border-radius: 15px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      img {
+         width: 27px;
+         height: 27px;
+         object-fit: contain;
+         display: block;
+      }
+
+      &:hover {
+         background-color: rgba(20, 54, 75, 0.06);
+      }
+   }
+
+   @media (max-width: 992px) {
+      .header {
+         &__container {
+            padding: 0 24px;
+         }
+
+         &__logo {
+            min-height: 84px;
+         }
+
+         &__logo-img img {
+            width: 36px;
+            height: 36px;
+         }
+
+         &__logo-title {
+            font-size: 28px;
+         }
+
+         &__burger {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+
+            span {
+               width: 24px;
+            }
+         }
+
+         &__logout {
+            width: 36px;
+            height: 36px;
+
+            img {
+               width: 22px;
+               height: 22px;
+            }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      .header {
+         &__container {
+            padding: 0 18px;
+         }
+
+         &__logo {
+            min-height: 72px;
+            gap: 16px;
+         }
+
+         &__logo-brand {
+            gap: 8px;
+         }
+
+         &__logo-img img {
+            width: 30px;
+            height: 30px;
+         }
+
+         &__logo-title {
+            font-size: 24px;
+         }
+
+         &__burger {
+            width: 34px;
+            height: 34px;
+
+            span {
+               width: 22px;
+               height: 2.5px;
+            }
+         }
+
+         &__logout {
+            width: 34px;
+            height: 34px;
+
+            img {
+               width: 20px;
+               height: 20px;
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,28 @@
+body {
+   margin: 0;
+   font-family: 'DM Sans', sans-serif;
+   background: $landing-bg;
+   color: $text-primary;
+}
+
+img {
+   display: block;
+   max-width: 100%;
+}
+
+a {
+   text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+   font: inherit;
+}
+
+button {
+   background: transparent;
+   border: 0;
+   padding: 0;
+}
