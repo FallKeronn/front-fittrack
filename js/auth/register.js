@@ -4,10 +4,15 @@ async function initRegisterPage() {
    await redirectIfAuthenticated("/dashboard.html");
 
    const form = document.getElementById("registerForm");
+   const googleButton = document.getElementById("googleRegisterButton");
 
-   if (!form) return;
+   if (form) {
+      form.addEventListener("submit", handleRegisterSubmit);
+   }
 
-   form.addEventListener("submit", handleRegisterSubmit);
+   if (googleButton) {
+      googleButton.addEventListener("click", handleGoogleRegister);
+   }
 }
 
 async function handleRegisterSubmit(event) {
@@ -28,10 +33,7 @@ async function handleRegisterSubmit(event) {
 
    try {
       await registerUser(payload);
-
-      await registerUser(payload);
       window.location.href = "/biometric.html";
-
    } catch (error) {
       console.error("Registration error:", error);
 
@@ -42,6 +44,28 @@ async function handleRegisterSubmit(event) {
       }
    } finally {
       setButtonLoading(submitButton, false, "Create Account");
+   }
+}
+
+async function handleGoogleRegister(event) {
+   const button = event.currentTarget;
+
+   clearFormMessage("registerMessage");
+   setButtonLoading(button, true, "Redirecting...");
+
+   try {
+      const response = await getGoogleAuthUrl();
+      const url = response?.url;
+
+      if (!url) {
+         throw new Error("Google auth URL was not returned.");
+      }
+
+      window.location.href = url;
+   } catch (error) {
+      console.error("Google register error:", error);
+      showFormMessage("registerMessage", "Failed to start Google authentication.");
+      setButtonLoading(button, false, "Sign up with Google");
    }
 }
 

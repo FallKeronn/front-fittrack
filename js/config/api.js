@@ -263,3 +263,18 @@ async function subscribeToPro() {
       method: "POST"
    });
 }
+
+async function getGoogleAuthUrl() {
+   await getCsrfCookie();
+
+   return request(CONFIG.API_URL + "/google/url");
+}
+
+async function completeGoogleAuth(code) {
+   await getCsrfCookie();
+
+   return request(CONFIG.API_URL + "/google/callback", {
+      method: "POST",
+      body: JSON.stringify({ code })
+   });
+}

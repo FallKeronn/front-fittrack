@@ -4,10 +4,15 @@ async function initLoginPage() {
    await redirectIfAuthenticated("/dashboard.html");
 
    const form = document.getElementById("loginForm");
+   const googleButton = document.getElementById("googleLoginButton");
 
-   if (!form) return;
+   if (form) {
+      form.addEventListener("submit", handleLoginSubmit);
+   }
 
-   form.addEventListener("submit", handleLoginSubmit);
+   if (googleButton) {
+      googleButton.addEventListener("click", handleGoogleLogin);
+   }
 }
 
 async function handleLoginSubmit(event) {
@@ -28,7 +33,6 @@ async function handleLoginSubmit(event) {
    try {
       await loginUser(payload);
       window.location.href = "/dashboard.html";
-
    } catch (error) {
       console.error("Login error:", error);
 
@@ -39,6 +43,28 @@ async function handleLoginSubmit(event) {
       }
    } finally {
       setButtonLoading(submitButton, false, "Sign In");
+   }
+}
+
+async function handleGoogleLogin(event) {
+   const button = event.currentTarget;
+
+   clearFormMessage("loginMessage");
+   setButtonLoading(button, true, "Redirecting...");
+
+   try {
+      const response = await getGoogleAuthUrl();
+      const url = response?.url;
+
+      if (!url) {
+         throw new Error("Google auth URL was not returned.");
+      }
+
+      window.location.href = url;
+   } catch (error) {
+      console.error("Google login error:", error);
+      showFormMessage("loginMessage", "Failed to start Google authentication.");
+      setButtonLoading(button, false, "Continue with Google");
    }
 }
 
