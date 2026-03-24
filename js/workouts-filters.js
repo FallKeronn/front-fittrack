@@ -60,13 +60,16 @@ function bindFilterToggle() {
    });
 
    document.addEventListener("click", function () {
-      filtersContainer.classList.remove("is-open");
-      toggleButton.setAttribute("aria-expanded", "false");
+      closeFiltersPanel();
    });
 }
 
 function bindFilterEvents() {
-   document.addEventListener("change", function (event) {
+   const filtersContainer = document.getElementById("workoutsFilters");
+
+   if (!filtersContainer) return;
+
+   filtersContainer.addEventListener("change", function (event) {
       if (event.target.id === "levelFilter") {
          if (window.WorkoutsPage && typeof window.WorkoutsPage.updateFilters === "function") {
             window.WorkoutsPage.updateFilters({
@@ -76,22 +79,41 @@ function bindFilterEvents() {
       }
    });
 
-   document.addEventListener("click", function (event) {
-      if (event.target.id === "resetFiltersBtn") {
-         resetFilterControls();
+   filtersContainer.addEventListener("click", function (event) {
+      const resetButton = event.target.closest("#resetFiltersBtn");
 
-         if (
-            window.WorkoutsPage &&
-            typeof window.WorkoutsPage.resetWorkoutFilters === "function"
-         ) {
-            window.WorkoutsPage.resetWorkoutFilters();
-         }
+      if (!resetButton) return;
+
+      resetFilterControls();
+
+      if (
+         window.WorkoutsPage &&
+         typeof window.WorkoutsPage.resetWorkoutFilters === "function"
+      ) {
+         window.WorkoutsPage.resetWorkoutFilters();
       }
+
+      closeFiltersPanel();
    });
 }
 
 function resetFilterControls() {
    const levelFilter = document.getElementById("levelFilter");
 
-   if (levelFilter) levelFilter.value = "all";
+   if (levelFilter) {
+      levelFilter.value = "all";
+   }
+}
+
+function closeFiltersPanel() {
+   const filtersContainer = document.getElementById("workoutsFilters");
+   const toggleButton = document.querySelector(".workouts-page__filter");
+
+   if (filtersContainer) {
+      filtersContainer.classList.remove("is-open");
+   }
+
+   if (toggleButton) {
+      toggleButton.setAttribute("aria-expanded", "false");
+   }
 }

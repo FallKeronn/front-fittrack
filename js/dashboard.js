@@ -1,5 +1,3 @@
-let dashboardChartInstance = null;
-
 document.addEventListener("DOMContentLoaded", initDashboardPage);
 
 async function initDashboardPage() {
@@ -8,8 +6,29 @@ async function initDashboardPage() {
    const user = await requireAuth("/login.html");
    if (!user) return;
 
-   handleStripeRedirectStatus();
    await loadDashboard();
+   handleStripeRedirectStatus();
+}
+
+async function loadDashboard() {
+   try {
+      const [overview, calendar, recentHistory, volumeChart] = await Promise.all([
+         getSharedDashboardOverview(),
+         api("/dashboard/calendar"),
+         api("/dashboard/recent-history"),
+         api("/analytics/charts/volume")
+      ]);
+
+      renderGreeting(overview?.user);
+      renderAnnouncement(overview?.announcement);
+      renderTodayWorkout(overview?.todays_workout);
+      renderWeeklyTraining(Array.isArray(calendar) ? calendar : []);
+      renderRecentSessions(Array.isArray(recentHistory) ? recentHistory : []);
+      renderProgressChart(volumeChart);
+
+   } catch (error) {
+      console.error("Dashboard loading error:", error);
+   }
 }
 
 function handleStripeRedirectStatus() {
@@ -33,25 +52,6 @@ function clearDashboardQueryParams() {
    window.history.replaceState({}, document.title, window.location.pathname);
 }
 
-async function loadDashboard() {
-   try {
-      const [overview, calendar, recentHistory, volumeChart] = await Promise.all([
-         api("/dashboard/overview"),
-         api("/dashboard/calendar"),
-         api("/dashboard/recent-history"),
-         api("/analytics/charts/volume")
-      ]);
-
-      renderGreeting(overview?.user);
-      renderTodayWorkout(overview?.todays_workout);
-      renderWeeklyTraining(Array.isArray(calendar) ? calendar : []);
-      renderRecentSessions(Array.isArray(recentHistory) ? recentHistory : []);
-      renderProgressChart(volumeChart);
-   } catch (error) {
-      console.error("Dashboard loading error:", error);
-   }
-}
-
 function renderGreeting(user) {
    const greetingElement = document.getElementById("dashboardGreeting");
    const subtitleElement = document.getElementById("dashboardSubtitle");
@@ -66,28 +66,47 @@ function renderGreeting(user) {
    }
 }
 
+function renderAnnouncement(announcement) {
+   const section = document.getElementById("dashboardAnnouncement");
+   const titleElement = document.getElementById("dashboardAnnouncementTitle");
+   const messageElement = document.getElementById("dashboardAnnouncementMessage");
+
+   if (!section || !titleElement || !messageElement) return;
+
+   if (!announcement?.title && !announcement?.message) {
+      section.hidden = true;
+      return;
+   }
+
+   titleElement.textContent = announcement.title || "Announcement";
+   messageElement.textContent = announcement.message || "";
+   section.hidden = false;
+}
+
 function renderTodayWorkout(workout) {
    const nameElement = document.getElementById("todayWorkoutName");
-   const metaElement = document.getElementById("todayWorkoutWeight");
+   const weightElement = document.getElementById("todayWorkoutWeight");
    const imageElement = document.getElementById("todayWorkoutImage");
    const buttonElement = document.getElementById("todayWorkoutButton");
 
-   if (!nameElement || !metaElement || !imageElement || !buttonElement) return;
+   if (!nameElement || !weightElement || !imageElement || !buttonElement) return;
 
    if (!workout) {
-      nameElement.textContent = "No workout scheduled today";
-      metaElement.textContent = "Take a rest day or explore available trainings.";
+      nameElement.textContent = "No workout for today";
+      weightElement.textContent = "Take a rest or check your training plan";
       imageElement.src = "./img/dashboard/bench-press.jpg";
       imageElement.alt = "No workout scheduled";
-      buttonElement.textContent = "Browse Trainings";
+      buttonElement.textContent = "View Trainings";
       buttonElement.href = "workouts.html";
       return;
    }
 
    nameElement.textContent = workout.name || "Workout";
-   metaElement.textContent = `${workout.difficulty || "Unknown"} • ${workout.status || "pending"}`;
+   weightElement.textContent = `${workout.difficulty || "Unknown"} • ${workout.status || "pending"}`;
+
    imageElement.src = "./img/dashboard/bench-press.jpg";
    imageElement.alt = workout.name || "Today workout";
+
    buttonElement.textContent = workout.status === "completed" ? "View Workout" : "Start Workout";
    buttonElement.href = `workout.html?id=${workout.training_id}&scheduled_workout_id=${workout.scheduled_workout_id}`;
 }
@@ -100,7 +119,7 @@ function renderWeeklyTraining(days) {
    container.innerHTML = "";
 
    if (!days.length) {
-      container.innerHTML = "<p>No weekly training data.</p>";
+      container.innerHTML = `<p>No weekly training data.</p>`;
       return;
    }
 
@@ -119,9 +138,9 @@ function renderWeeklyTraining(days) {
       const showChangeButton = Boolean(day.is_today);
 
       card.innerHTML = `
-         <span class="training-day__weekday">${escapeHtml(shortWeekday)}</span>
-         <span class="training-day__date">${escapeHtml(dayNumber)}</span>
-         <span class="training-day__type">${escapeHtml(trainingLabel)}</span>
+         <span class="training-day__weekday">${shortWeekday}</span>
+         <span class="training-day__date">${dayNumber}</span>
+         <span class="training-day__type">${trainingLabel}</span>
          ${showChangeButton
             ? `<a href="workouts.html" class="training-day__action">change</a>`
             : `<span class="training-day__status ${isDone ? "training-day__status--done" : ""}"></span>`
@@ -140,7 +159,7 @@ function renderRecentSessions(sessions) {
    container.innerHTML = "";
 
    if (!sessions.length) {
-      container.innerHTML = "<p>No recent sessions yet.</p>";
+      container.innerHTML = `<p>No recent sessions yet.</p>`;
       return;
    }
 
@@ -150,8 +169,8 @@ function renderRecentSessions(sessions) {
 
       item.innerHTML = `
          <div class="session-item__info">
-            <h3 class="session-item__title">${escapeHtml(session.training_name || "Workout session")}</h3>
-            <p class="session-item__date">${escapeHtml(session.date || "-")}</p>
+            <h3 class="session-item__title">${session.training_name || "Workout session"}</h3>
+            <p class="session-item__date">${session.date || "-"}</p>
          </div>
 
          <div class="session-item__meta">
@@ -168,17 +187,14 @@ function renderProgressChart(chartData) {
    const canvas = document.getElementById("progressChart");
    if (!canvas || typeof Chart === "undefined") return;
 
-   const labels = Array.isArray(chartData?.labels) ? chartData.labels : [];
-   const data = Array.isArray(chartData?.data) ? chartData.data : [];
+   const labels = chartData?.labels || [];
+   const data = chartData?.data || [];
 
-   destroyDashboardChart();
-
-   if (!labels.length || !data.length || !hasNonZeroValues(data)) {
-      renderProgressChartMessage("No progress data yet.");
-      return;
+   if (window.dashboardChartInstance) {
+      window.dashboardChartInstance.destroy();
    }
 
-   dashboardChartInstance = new Chart(canvas, {
+   window.dashboardChartInstance = new Chart(canvas, {
       type: "line",
       data: {
          labels,
@@ -187,112 +203,32 @@ function renderProgressChart(chartData) {
                label: "Volume (kg)",
                data,
                borderColor: "#7c8df6",
-               backgroundColor: "rgba(124, 141, 246, 0.10)",
-               borderWidth: 3,
+               backgroundColor: "rgba(124, 141, 246, 0.15)",
                tension: 0.35,
-               fill: false,
-               pointRadius: 4,
-               pointHoverRadius: 6,
-               pointBackgroundColor: "#7c8df6",
-               pointBorderColor: "#ffffff",
-               pointBorderWidth: 2
+               fill: true
             }
          ]
       },
       options: {
          responsive: true,
          maintainAspectRatio: false,
-         layout: {
-            padding: {
-               top: 8,
-               right: 8,
-               bottom: 0,
-               left: 8
-            }
-         },
          plugins: {
             legend: {
                display: false
-            },
-            tooltip: {
-               backgroundColor: "#111111",
-               titleColor: "#ffffff",
-               bodyColor: "#ffffff",
-               displayColors: false,
-               callbacks: {
-                  label(context) {
-                     return `${formatNumber(context.raw)} kg`;
-                  }
-               }
             }
          },
          scales: {
-            x: {
-               grid: {
-                  display: false,
-                  drawBorder: false
-               },
-               ticks: {
-                  color: "#7b8190",
-                  font: {
-                     size: 12
-                  }
-               }
-            },
             y: {
-               beginAtZero: true,
-               grid: {
-                  color: "rgba(17, 17, 17, 0.08)",
-                  drawBorder: false
-               },
-               ticks: {
-                  color: "#7b8190",
-                  font: {
-                     size: 12
-                  },
-                  callback(value) {
-                     return formatNumber(value);
-                  }
-               }
+               beginAtZero: true
             }
          }
       }
    });
 }
 
-function destroyDashboardChart() {
-   if (!dashboardChartInstance) return;
-
-   dashboardChartInstance.destroy();
-   dashboardChartInstance = null;
-}
-
-function renderProgressChartMessage(message) {
-   const canvas = document.getElementById("progressChart");
-   const wrapper = canvas?.parentElement;
-
-   if (!wrapper) return;
-
-   wrapper.innerHTML = `
-      <div class="progress-card__empty">
-         ${escapeHtml(message)}
-      </div>
-   `;
-}
-
-function hasNonZeroValues(values) {
-   return values.some((value) => Number(value) > 0);
-}
-
 function formatDuration(minutes) {
    if (minutes == null) return "--";
    return `${Math.round(minutes)} min`;
-}
-
-function formatNumber(value) {
-   return new Intl.NumberFormat("en-US", {
-      maximumFractionDigits: 0
-   }).format(Number(value) || 0);
 }
 
 function formatWeekdayShort(dayName) {
@@ -368,13 +304,4 @@ function initWeeklyTrainingDrag() {
       const walk = (x - startX) * 1.2;
       track.scrollLeft = scrollLeft - walk;
    });
-}
-
-function escapeHtml(value) {
-   return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
 }

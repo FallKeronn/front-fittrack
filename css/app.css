@@ -960,6 +960,7 @@ body {
 
 .sessions-card {
   background: #F0F2FB;
+  height: 385px;
   border-radius: 15px;
   -webkit-box-shadow: 0 7px 15px rgb(218, 219, 254);
           box-shadow: 0 7px 15px rgb(218, 219, 254);
@@ -1016,8 +1017,12 @@ body {
           flex-direction: column;
   gap: 14px;
   min-width: 0;
-  height: 385px;
-  max-height: 385px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  max-height: none;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 6px;
@@ -1200,6 +1205,38 @@ body {
   line-height: 1.1;
 }
 
+.dashboard-announcement {
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  background: #fbf7ff;
+  border: 1px solid rgba(154, 133, 225, 0.25);
+  border-radius: 15px;
+  -webkit-box-shadow: 0 7px 15px rgb(218, 219, 254);
+          box-shadow: 0 7px 15px rgb(218, 219, 254);
+}
+.dashboard-announcement__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+.dashboard-announcement__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #342D4D;
+}
+.dashboard-announcement__message {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6D6D6D;
+}
+
 .weekly-training {
   background: #F0F2FB;
   border-radius: 15px;
@@ -1226,12 +1263,6 @@ body {
   font-size: 38px;
   color: #342D4D;
 }
-.weekly-training__streak {
-  margin: 0;
-  font-size: 20px;
-  color: #342D4D;
-  white-space: nowrap;
-}
 .weekly-training__track {
   width: 100%;
   min-width: 0;
@@ -1251,6 +1282,9 @@ body {
   grid-template-columns: 1.1fr 1fr;
   gap: 20px;
   min-width: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 @media (max-width: 1200px) {

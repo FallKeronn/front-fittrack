@@ -278,3 +278,17 @@ async function completeGoogleAuth(code) {
       body: JSON.stringify({ code })
    });
 }
+
+let dashboardOverviewPromise = null;
+
+function getSharedDashboardOverview() {
+   if (!dashboardOverviewPromise) {
+      dashboardOverviewPromise = api("/dashboard/overview");
+   }
+
+   return dashboardOverviewPromise;
+}
+
+function resetSharedDashboardOverview() {
+   dashboardOverviewPromise = null;
+}

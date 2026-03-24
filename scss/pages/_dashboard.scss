@@ -23,6 +23,35 @@
    }
 }
 
+.dashboard-announcement {
+   margin-bottom: 20px;
+   padding: 18px 22px;
+   background: #fbf7ff;
+   border: 1px solid rgba(154, 133, 225, 0.25);
+   border-radius: 15px;
+   box-shadow: $shadow;
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: $text-primary;
+   }
+
+   &__message {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: $text-secondary;
+   }
+}
+
 .weekly-training {
    background: $bg-card;
    border-radius: 15px;
@@ -44,13 +73,6 @@
       color: $text-primary;
    }
 
-   &__streak {
-      margin: 0;
-      font-size: 20px;
-      color: $text-primary;
-      white-space: nowrap;
-   }
-
    &__track {
       width: 100%;
       min-width: 0;
@@ -68,6 +90,7 @@
    grid-template-columns: 1.1fr 1fr;
    gap: 20px;
    min-width: 0;
+   align-items: start;
 }
 
 @media (max-width: 1200px) {

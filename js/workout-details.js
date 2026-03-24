@@ -330,7 +330,6 @@ async function handleFinishWorkout(button) {
 
    if (!Array.isArray(workoutPageState.sets) || !workoutPageState.sets.length) {
       alert("No workout sets found.");
-      console.log("Current workout sets:", workoutPageState.sets);
       return;
    }
 

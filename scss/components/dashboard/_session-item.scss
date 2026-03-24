@@ -1,10 +1,10 @@
 .sessions-card {
    background: $bg-card;
+   height: 385px;
    border-radius: 15px;
    box-shadow: $shadow;
    padding: 32px 20px;
    min-width: 0;
-
    display: flex;
    flex-direction: column;
 
@@ -42,8 +42,10 @@
       gap: 14px;
       min-width: 0;
 
-      height: 385px;
-      max-height: 385px;
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
+      max-height: none;
       overflow-y: auto;
       overflow-x: hidden;
       padding-right: 6px;
